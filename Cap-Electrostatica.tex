@@ -631,12 +631,14 @@ Integrando a ambos lados, el campo eléctrico es
     &= \frac{\lambda}{4\pi \varepsilon_0} \left[ \int_{-\infty}^{\infty} \frac{R}{(\sqrt{R^2 + (z-z')^2})^3} \,dz' \, \hat{\rho} + \int_{-\infty}^{\infty} \frac{z-z'}{(\sqrt{R^2 + (z-z')^2})^3} \,dz'\,\hat{k}\right].
 \end{align*}
 
-El integrando de la segunda integral es una función impar en $z'$, ésto es, si
-$$f(z') = \frac{z-z'}{(\sqrt{R^2 + (z-z')^2})^3} \Rightarrow f(-z') = - \frac{z-z'}{(\sqrt{R^2 + (z-z')^2})^3} = -f(z').$$
+Si hacemos el cambio de variable $u = z - z' \Rightarrow du = - dz'$ en la segunda integral, tenemos que
+$$\int_{-\infty}^{\infty} \frac{z-z'}{(\sqrt{R^2 + (z-z')^2})^3} \,dz' = \int_{\infty}^{-\infty} \frac{u}{(\sqrt{R^2 + u^2})^3} (- du) = \int_{-\infty}^{\infty} \frac{u}{(\sqrt{R^2 + u^2})^3} \,du.$$
 
-Entonces,  la integral desde $-\infty$ a $\infty$ en $z'$, se anula. Así,
+El integrando es una función impar en $u$, ésto es, si
+$$f(u) = \frac{u}{(\sqrt{R^2 + u^2})^3} \Rightarrow f(-u) = - \frac{u}{(\sqrt{R^2 + u^2})^3} = -f(u).$$
+
+Entonces,  la integral desde $-\infty$ a $\infty$ en $u$, se anula. Así,
 $$\Vec{E}(\Vec{x}) = \frac{\lambda}{4\pi \varepsilon_0}\int_{-\infty}^{\infty} \frac{R}{(\sqrt{R^2 + (z-z')^2})^3} \,dz' \, \hat{\rho} .$$
-
 
 Resolviendo la integral indefinida:
 $$\int \frac{R}{(\sqrt{R^2 + (z-z')^2})^3} \,dz' = - \frac{z-z'}{R\sqrt{R^2 + (z-z')^2}} + C .$$
@@ -662,7 +664,7 @@ En ella se observa que el campo eléctrico tiene simetría radial cilíndrica, �
 
 \begin{figure}[H]
 \centering
-\resizebox{12.5cm}{7cm}{%
+\resizebox{12cm}{6cm}{%
 \input{./Figuras/Campo-Electrico-Alambre.tex}
 }
 \caption{Campo eléctrico de un alambre infinito. Recuperado de: \href{https://latexdraw.com/electric-field-of-line-charge-in-tikz/}{latexdraw.com}.}

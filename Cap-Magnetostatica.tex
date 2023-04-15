@@ -19,7 +19,7 @@ $$\vec{F}_m = q\vec{v} \times \vec{B}.$$
     \label{fig:Fuerza-Magnetica}
 \end{figure}
 
-La unidad de medida del campo magnético es el \textit{Tesla} ($T$), donde
+La unidad de medida del campo magnético es el \textit{Tesla} ($T$), donde \footnote{Es más común utilizar la unidad del sistema CGS (el \textit{Gauss} ($G$)) que la unidad del SI (el \textit{Tesla}) para el campo magnético, donde $1 \, [T] = 10^4 \, [G]$. Por ejemplo, el campo magnético de la Tierra es aproximadamente medio Gauss.}
 $$1 \,[T] = 1 \, \left[ \frac{N s}{C m } \right] = 1 \,\left[ \frac{N}{A  m } \right].$$
 
 Como la fuerza magnética se expresa con un producto cruz, el vector $\vec{F}_m$ es perpendicular a $\vec{v}$ y a $\vec{B}$. Además, la magnitud de la fuerza magnética sobre la carga es 
@@ -321,15 +321,321 @@ Luego,
 
 \section{Ley de Biot-Savart}
 
-\section{Potencial vectorial y ley de Gauss para el magnetismo}
+Biot y Savart encontraron que el campo magnético $d\vec{B}$ que un pequeño segmento $d\vec{x}\,'$ orientado en la dirección de la corriente $I$ y ubicado en la posición $\vec{x}\,'$ en un punto de posición $\vec{x}$ está dado por:
+$$d\vec{B} = \frac{\mu_0}{4\pi} \frac{I d\vec{x}\,' \times (\vec{x} - \vec{x}\,')}{|\vec{x} - \vec{x}\,'|^3},$$
 
-\subsection{Potencial vectorial*}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = 1.2]{Figuras/Ley-Biot-Savart.pdf}
+    \caption{Ley de Biot-Savart.}
+    \label{fig:my_label}
+\end{figure}
 
-\subsection{Ley del Gauss para el magnetismo}
+donde $\mu_0$ es la \textbf{permeabilidad magnética del vacío}. Su unidad de medida en el S.I. es \cite{Griffiths}
+$$\mu_0 = 4\pi \times 10^{-7} \left[ \frac{Tm}{A} \right].$$
+
+Usando el principio de superposición, la forma integral de esta ley es
+\begin{shaded}
+    $$\vec{B}(\vec{x}) = \frac{\mu_0}{4\pi} \int_C \frac{I d\vec{x}\,' \times (\vec{x} - \vec{x}\,') }{|\vec{x} - \vec{x}\,'|^3}.$$
+\end{shaded}
+
+Una forma de determinar la dirección del campo magnético, sabiendo la dirección de la corriente, es mediante la regla de la mano derecha. En la  figura \ref{fig:Mano-Derecha-B} se ilustra el método para un alambre muy largo con corriente, pero el método también se puede aplicar a conductores de otra forma.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = 0.18]{Figuras/Manoderecha.png}
+    \caption{Regla de la mano derecha para determinar la dirección del campo magnético dada una corriente $I$. Recuperado de: \href{https://commons.wikimedia.org/wiki/File:Manoderecha.svg}{commons.wikimedia.org}.}
+    \label{fig:Mano-Derecha-B}
+\end{figure}
+
+Podemos generalizar este resultado al caso de una distribución volumétrica de corriente descrita por su densidad de corriente $\Vec{J}$:
+\begin{shaded}
+    $$\Vec{B}(\vec{x}) = \frac{\mu_0}{4\pi} \iiint_V \frac{\Vec{J}(\vec{x}\,') \times (\Vec{x} - \Vec{x}\,')}{|\Vec{x} - \Vec{x}\,'|^3} dV'.$$
+\end{shaded}
+
+\begin{ejemplo}
+    Determine el campo magnético a una distancia $R$ de un alambre recto e infinito en el cual circula una corriente $I$.
+
+\textbf{Solución:} Notemos que al trasladarnos a lo largo del eje $z$ a una distancia $R$ fija, la distribución es la misma (simetría de traslación con respecto al eje $z$), por lo tanto nos basta con calcular el campo magnético en un punto a una distancia $R$ del origen en el plano $z = 0$. 
+
+Usando coordenadas cilíndricas, tenemos que
+$$d\vec{x}\,' = dz' \,\hat{k}, \quad \vec{x}\,'= z' \,\hat{k}, \quad  \vec{x} = R \,\hat{\rho}.$$
+
+\begin{figure}[H]
+     \centering
+     \includegraphics[scale = 0.65]{Figuras/Ej-1-BiotSavart.pdf}
+     \caption{Campo magnético generado por un alambre infinito.}
+     \label{fig:Ej-1-Biot-Savart}
+ \end{figure}
+
+    El diferencial de campo magnético en $\Vec{x}$ está dado por:
+\begin{align*}
+    d\vec{B}(\vec{x}) &= \frac{\mu_0}{4\pi}  \frac{I d\vec{x}\,' \times (\vec{x} - \vec{x}\,')}{|\vec{x} - \vec{x}\,'|^3} \\
+&=  \frac{\mu_0 I}{4\pi} \frac{dz' \,\hat{k} \times (R \,\hat{\rho} - z'\,\hat{k}) }{|R \,\hat{\rho} - z'\,\hat{k}|^3} \\
+&= \frac{\mu_0 I}{4\pi} \frac{R \,dz' \,\hat{\varphi}}{(R^2 + z'\,^2)^{3/2}}.
+\end{align*}
+
+Integrando a ambos lados, obtenemos que el campo magnético en todo punto $\Vec{x}$ resulta
+\begin{align*}
+ \vec{B}(\vec{x}) &= \frac{\mu_0 I}{4\pi} \int_{-\infty}^{\infty} \frac{R\,dz' \,\hat{\varphi}}{(R^2 + z'\,^2)^{3/2}} \\
+&= \frac{\mu_0 IR}{4\pi} \hat{\varphi} \int_{-\infty}^{ \infty} \frac{dz'}{(R^2 + z'\,^2)^{3/2}}  \\
+&= \frac{\mu_0 IR}{4\pi} \hat{\varphi}   \left[ \frac{z'}{R^2 \sqrt{z'\,^2 + R^2}} \right]_{-\infty}^{ \infty} \\
+&= \frac{\mu_0 IR}{4\pi} \hat{\varphi}  \left( \frac{1}{R^2} + \frac{1}{R^2} \right) \\
+&= \frac{\mu_0 I}{2\pi R} \hat{\varphi} .   
+\end{align*}
+
+\end{ejemplo}
+
+\begin{ejemplo}
+   Calcular el campo magnético de un anillo circular de radio $R$ e intensidad de corriente $I$ en el punto $P$, ver figura \ref{fig:Ej-2-Biot-Savart}.
+
+\begin{figure}[H]
+     \centering
+     \includegraphics[scale = 0.7]{Figuras/Ej-2-Biot-Savart.pdf}
+     \caption{Campo magnético generado por una espira en un punto del eje $z$.}
+     \label{fig:Ej-2-Biot-Savart}
+ \end{figure}
+
+\textbf{Solución:} Usando coordenadas cilíndricas, tenemos que
+$$d\vec{x}\,' = R \,d \varphi' \,\hat{\varphi}, \quad \vec{x}\,' = R \,\hat{\rho} = R (\cos \varphi' \,\hat{\imath} + \sin \varphi' \,\hat{\jmath}), \quad  \vec{x} = z\,\hat{k}.$$
+
+El diferencial de campo magnético en $\Vec{x}$ está dado por:
+\begin{align*}
+ d\vec{B}(\vec{x}) &= \frac{\mu_0}{4\pi}  \frac{I d\vec{x}\,' \times (\vec{x} - \vec{x}\,')}{|\vec{x} - \vec{x}\,'|^3} \\
+&=  \frac{\mu_0 I}{4\pi} \frac{R \,d\varphi' \hat{\varphi} \times (z \,\hat{k} - R \,\hat{\rho})}{|z \,\hat{k} - R \hat{\rho}|^3} \\
+&= \frac{\mu_0 I}{4\pi} \frac{R\,d\varphi' (z \,\hat{\rho} + R \,\hat{k})}{(z^2 + R^2)^{3/2}}. 
+\end{align*}
+
+Integrando a ambos lados, obtenemos que el campo magnético en $\Vec{x} = z\,\hat{k}$ resulta
+\begingroup
+\allowdisplaybreaks
+\begin{align*}
+\vec{B}(\vec{x}) &= \frac{\mu_0 I}{4\pi} \int_{0}^{2\pi} \frac{R \,d\varphi' (z \,\hat{\rho} + R \,\hat{k})}{(z^2 + R^2)^{3/2}} \\
+&= \frac{\mu_0 IR}{4\pi (z^2 + R^2)^{3/2}} \int_0^{2\pi} (z \,\hat{\rho} + R \,\hat{k}) d\varphi' \\
+&= \frac{\mu_0 IR}{4\pi (z^2 + R^2)^{3/2}} \left(  \int_0^{2\pi} z \, \hat{\rho} \,d\varphi' + \int_0^{2\pi} R \,\hat{k} \,d\varphi' \right) \\
+&= \frac{\mu_0 IR}{4\pi (z^2 + R^2)^{3/2}} \left(  z \int_0^{2\pi} ( \cos \varphi' \,\hat{\imath} + \sin \varphi' \, \hat{\jmath}) d\varphi' + 2\pi R\, \hat{k} \right) \\
+&= \frac{\mu_0 IR}{4\pi (z^2 + R^2)^{3/2}} \left( \vec{0} + 2\pi R \,\hat{k} \right) \\
+&= \frac{\mu_0 IR^2}{2(z^2 + R^2)^{3/2}}\, \hat{k}.    
+\end{align*}
+\endgroup
+
+\end{ejemplo}
+
+\begin{ejemplo}
+     Considere un disco aislante de radio $R$ sobre el cual se ha depositado una densidad de carga superficial uniforme $\sigma$. Si el disco rota rígidamente en torno a su eje de simetría con rapidez angular $\omega$, calcule el campo magnético producido por el disco sobre el eje.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = 0.3]{Figuras/CampoMagneticoDiscoRotando.png}
+    \caption{Disco de densidad superficial constante rotando a una rapidez angular constante.}
+    \label{fig:Disco-Rotando}
+\end{figure}
+
+\textbf{Solución:} Situamos un sistema coordenada tal que el disco yace sobre el plano $z =0$ con el eje de rotación el eje $z$, ver figura \ref{fig:Disco-Rotando}.
+
+Notemos que
+$$I d\Vec{x}\,' = \frac{dQ}{dt} d\Vec{x}\,' = dQ \frac{d\Vec{x}}{dt} = (\sigma \,dS') \Vec{v}\,',$$
+
+donde $\vec{v}\,'$ es la velocidad de las cargas.
+
+Como las cargas rotan rígidamente describiendo un movimiento circular, tenemos que
+$$\Vec{v}\,' = \vec{\omega} \times \vec{x}\,' = (\omega \,\hat{k}) \times (\rho\,' \,\hat{\rho}) = \omega \rho\,' \,\hat{\varphi}.$$
+
+Luego,
+$$I d\vec{x}\,' = \sigma \omega \rho' \,dS'\, \hat{\varphi}.$$
+
+Usando coordenadas cilíndricas:
+$$I d\vec{x}\,' = \sigma \omega \rho'\,^2 \,d\varphi \,d\rho'\, \hat{\varphi}, \quad  \vec{x}\,' = \rho' \,\hat{\rho} = \rho' (\cos \varphi' \, \hat{\imath} + \sin \varphi' \,\hat{\jmath}), \quad \vec{x} = z \,\hat{k}.$$
+
+El diferencial de campo magnético en $\Vec{x}$ está dado por:
+\begin{align*}
+d\vec{B}(\vec{x}) &= \frac{\mu_0}{4\pi}  \frac{I d\vec{x}\,' \times (\vec{x} - \vec{x}\,')}{|\vec{x} - \vec{x}\,'|^3} \\
+&=  \frac{\mu_0}{4\pi} \frac{\sigma \omega \rho'\,^2\, d\varphi' \,d\rho'\, \hat{\varphi} \times (z \,\hat{k} - \rho'\, \hat{\rho})}{|z \,\hat{k} - \rho'\, \hat{\rho}|^3} \\
+&= \frac{\mu_0 \sigma \omega}{4\pi} \frac{(z \rho'\,^2 \,\hat{\rho} + \rho'\,^3 \,\hat{k})}{(z^2 + \rho'\,^2)^{3/2}} \,d\varphi'\, d\rho'.    
+\end{align*}
+
+Integrando a ambos lados, obtenemos que el campo magnético en $\Vec{x} = z\,\hat{k}$ resulta
+\begin{align*}
+  \vec{B}(\vec{x}) &= \frac{\mu_0 \sigma \omega}{4\pi} \int_0^R \int_0^{2\pi} \frac{z \rho'\,^2\, \hat{\rho} + \rho'\,^3 \,\hat{k}}{(z^2 + \rho'\,^2)^{3/2}} \,d\varphi'\, d\rho' \\
+&= \frac{\mu_0 \sigma \omega}{4\pi} \int_0^R \left( \frac{z \rho'\,^2}{(z^2 + \rho'\,^2)^{3/2}} \cancelto{0}{\int_0^{2\pi} \hat{\rho} \,d\varphi' }   + \frac{2\pi \rho'\,^3}{(z^2+\rho'\,^2)^{3/2}} \,\hat{k} \right)  d\rho' \\
+&= \frac{\mu_0 \sigma \omega}{2} \int_0^R \frac{\rho'\,^3}{(z^2 + \rho'\,^2)^{3/2}} d\rho'\, \hat{k}.  
+\end{align*}
+
+Usando la sustitución $u = z^2 + \rho'\,^2 \Rightarrow du = 2\rho'\, d\rho'$, concluimos que
+\begin{align*}
+ \vec{B}(\vec{x}) &= \frac{\mu_0 \sigma \omega}{4} \int_{z^2}^{z^2 + R^2} \frac{u-z^2}{u^{3/2}} \,du \,\hat{k} \\
+&= \frac{\mu_0 \sigma \omega}{4} \int_{z^2}^{z^2 + R^2} u^{- 1/2} - z^2 u^{-3/2} \,du \,\hat{k} \\
+&= \frac{\mu_0 \sigma \omega}{4} \,\hat{k} \left[ 2 u^{1/2} + 2z^2 u^{-1/2} \right]_{z^2}^{z^2 + R^2} \\
+&= \frac{\mu_0 \sigma \omega}{4}\, \hat{k} \left[ 2 \sqrt{z^2 + R^2} + \frac{2z^2}{\sqrt{z^2+R^2}} - 2 |z| - \frac{2z^2}{|z|} \right] \\
+&= \frac{\mu_0 \sigma \omega}{4} \,\hat{k} \left[ \frac{4z^2 + 2R^2}{\sqrt{z^2+R^2}} -  \frac{4z^2}{|z|} \right] \\
+&= \frac{\mu_0 \sigma \omega}{2} \left[ \frac{2z^2 + R^2}{\sqrt{z^2+R^2}} -  \frac{2z^2}{|z|} \right] \hat{k}.   
+\end{align*}
+
+\end{ejemplo}
+
+\section{Divergencia del campo magnético}
+
+La ley de Biot-Savart para el caso general de una distribución volumétrica de corriente está dada por
+$$\Vec{B}(\Vec{x}) = \frac{\mu_0}{4\pi} \iiint_{V} \frac{\Vec{J}(\Vec{x}\,') \times (\Vec{x} - \Vec{x}\,')}{|\Vec{x} - \Vec{x}\,'|^3} \,dV'.$$
+
+Es importante destacar que la integración es sobre las coordenadas primadas (pertenecientes a la distribución de corriente). Entonces, si tomamos la divergencia con respecto a las coordenadas \textbf{no primadas}, obtenemos:
+$$\Vec{\nabla} \cdot \Vec{B} =  \Vec{\nabla} \cdot \left( \frac{\mu_0}{4\pi} \iiint_V \frac{\Vec{J}(\Vec{x}\,') \times (\Vec{x} - \Vec{x}\,')}{|\Vec{x} - \Vec{x}\,'|^3} \,dV' \right) = \frac{\mu_0}{4\pi}  \iiint_V \Vec{\nabla} \cdot \left( \frac{\Vec{J}(\Vec{x}\,') \times (\Vec{x} - \Vec{x}\,')}{|\Vec{x} - \Vec{x}\,'|^3} \right) \,dV'.$$
+
+Desarrollando la divergencia del rotor (ver teorema \ref{Prop-Op-Vect}),
+$$\Vec{\nabla} \cdot \left( \Vec{J}(\Vec{x}\,') \times \frac{(\Vec{x} - \Vec{x}\,')}{|\Vec{x} - \Vec{x}\,'|^3}  \right) = \frac{(\Vec{x} - \Vec{x}\,')}{|\Vec{x} - \Vec{x}\,'|^3}  \cdot (\Vec{\nabla} \times \Vec{J}(\Vec{x}\,')) - \Vec{J}(\Vec{x}\,') \cdot \left(\Vec{\nabla} \times \frac{(\Vec{x} - \Vec{x}\,')}{|\Vec{x} - \Vec{x}\,'|^3}  \right).$$
+
+Pero $\Vec{\nabla} \times \Vec{J} = \Vec{0}$, pues $\vec{J}$ no depende de las variables no primadas, mientras que 
+$$\Vec{\nabla} \times \left(\frac{(\Vec{x} - \Vec{x}\,')}{|\Vec{x} - \Vec{x}\,'|^3} \right) = - \Vec{\nabla} \times \Vec{\nabla} \left( \frac{1}{|\Vec{x} - \Vec{x}\,'|}\right) = 0,$$
+
+donde se usó la identidad \eqref{Identidad-Grad}. Por lo tanto,
+\begin{shaded}
+\begin{equation}
+     \Vec{\nabla} \cdot \Vec{B} = 0.   \label{Div.B}
+\end{equation}
+\end{shaded}
+
+La divergencia de $\Vec{B}$ es nula. En algunos libros se le conoce como ley de Gauss del magnetismo y corresponde a una de las cuatro ecuaciones de Maxwell.
+
+Si integramos en un volumen arbitrario $V$ la ecuación \eqref{Div.B} y aplicamos el teorema de Gauss, encontramos que el  \textbf{flujo magnético} es nulo:
+\begin{equation*}
+\Phi_B = \iint_S \vec{B} \cdot d\vec{S} = 0,
+\end{equation*}
+
+donde $S$ es la superficie que encierra el volumen $V$.
+
+\textbf{Observación:} Las unidades del flujo en el S.I es $1 \,
+[T/m^2]$.
+
+¿Qué nos quiere decir que el flujo magnético en toda superficie cerrada sea nulo? 
+
+Nos dice que no hay fuentes de flujo magnético y que las lineas de flujo magnético siempre se cierran sobre si mismas. En otras palabras, no hay polos magnéticos aislados (monopolos).
+
+\begin{comment}
 
 \section{Ley de Ampère}
 
+En casos de alta simetría, la \textbf{Ley de Ampère}, permite calcular rápidamente el campo magnético producido por corrientes evitando el uso de la Ley de Biot-Savart. Es similar a la ley de Gauss, pero en lugar de calcular flujos, con integrales de superficies, se hacen circulaciones, con integrales de línea.
+
+La última expresión nos da la ley de Ampère, que establece que la circulación del vector $\vec{B}$ es independiente de la trayectoria e igual a $\mu_0$ por la corriente total encerrada por el camino en el cual se integra.
+
+\begin{equation*}
+\boxed{\oint_C \vec{B} \cdot d\vec{l} = \mu_0 I_{encerrada}}
+\end{equation*}
+
+\textbf{Ejemplo 1:} Determinar el campo magnético producido por un alambre recto e infinito de radio $R$ por el que fluye una corriente $I$ uniformemente a través de su sección ($J = cte$).
+
+\begin{center}
+\includegraphics[scale=0.28]{Ejemplo1Ampere.png}
+\end{center}
+
+\textbf{Solución:} 
+
+En vista de la simetría cilíndrica usamos circunferencias concéntricas al alambre y de radio $r$ para aplicar la ley de  Ampère.
+
+\begin{itemize}
+\item \textbf{Caso 1:} $r \geq R$.
+
+\begin{eqnarray*}
+\oint \vec{B} \cdot d\vec{l} &=& \mu_0 I_{enc} \\
+\Rightarrow ~ \int_0^{2\pi} (B \hat{\phi} ) \cdot (r d\phi \hat{\phi}) &=& \mu_0 I \\
+\Rightarrow \quad \quad \quad ~\; \int_0^{2\pi} B  r d\phi &=& \mu_0 I \\
+\Rightarrow \quad \quad \quad \quad \quad ~~\; 2\pi r B &=& \mu_0 I \\
+\Rightarrow \quad \quad \quad \quad  \quad  \quad \quad \;\; B &=& \frac{\mu_0 I }{2 \pi r} \\
+\Rightarrow \quad \quad \quad \quad  \quad  \quad \quad \;\; \vec{B} &=& \frac{\mu_0 I }{2 \pi r} \hat{\phi}.
+\end{eqnarray*}
+
+\item \textbf{Caso 2:} $0 \leq r < R$.
+
+La corriente encerrada en este caso es
+
+\begin{equation}
+I_{enc} = \iint_S \vec{J} \cdot d\vec{S} = \iint_S J dS = J \iint_S dS = J \pi r^2. \label{Ampere1}
+\end{equation}
+
+Tenemos en este caso una ecuación y dos incógnitas. Sin embargo, si agregamos la  ecuación
+
+\begin{equation}
+I = J \pi R^2 \label{Ampere2},
+\end{equation}
+
+podemos despejar $I_{enc}$ dividiendo la ecuación \eqref{Ampere1} entre \eqref{Ampere2}:
+
+\begin{equation*}
+\frac{I_{enc}}{I} = \frac{r^2}{R^2} ~\Rightarrow~ I_{enc} = I \frac{r^2}{R^2}.
+\end{equation*}
+
+Usando la ley de Ampère.
+
+\begin{eqnarray*}
+\oint \vec{B} \cdot d\vec{l} &=& \mu_0 I_{enc} \\
+\Rightarrow ~ \int_0^{2\pi} (B \hat{\phi} ) \cdot (r d\phi \hat{\phi}) &=& \mu_0 I \frac{r^2}{R^2} \\
+\Rightarrow \quad \quad \quad ~\; \int_0^{2\pi} B  r d\phi &=& \mu_0 I \frac{r^2}{R^2} \\
+\Rightarrow \quad \quad \quad \quad \quad ~~\; 2\pi r B &=& \mu_0 I \frac{r^2}{R^2} \\
+\Rightarrow \quad \quad \quad \quad  \quad  \quad \quad \;\; B &=& \frac{\mu_0 I }{2 \pi R^2}r \\
+\Rightarrow \quad \quad \quad \quad  \quad  \quad \quad \;\; \vec{B} &=& \frac{\mu_0 I }{2 \pi R^2}r  \hat{\phi}.
+\end{eqnarray*}
+
+Por lo tanto, el campo magnético del alambre es
+
+\begin{equation*}
+\vec{B}(r) = \left\{ \begin{array}{ccl}
+\frac{\mu_0 I }{2 \pi R^2}r  \hat{\phi} &,& 0 \leq r < R \\
+ \frac{\mu_0 I }{2 \pi r} \hat{\phi} &,& r \geq R
+\end{array} \right. .
+\end{equation*}
+
+\end{itemize}
+
+\textbf{Ejemplo 2:} Encontrar el campo magnético dentro de un solenoide largo $n = N/L$ vueltas por unidad de longitud y alimentado con una corriente $I$.
+
+\begin{center}
+\includegraphics[scale=0.25]{Solenoide.png}
+\end{center}
+
+\textbf{Solución:}
+
+Un solenoide es un alambre largo enrollado en forma de hélice. Cuando el alambre es suficientemente largo, el campo en el interior es aproximadamente uniforme y en el exterior es nulo.
+\\
+
+Usando la trayectoria rectangular ($abcd$)  representada en la figura:
+
+\begin{equation*}
+\oint \vec{B} \cdot d\vec{l} = \underbrace{\int_a^b \vec{B} \cdot d\vec{l}}_{\vec{B} \parallel d\vec{l}} + \underbrace{\int_b^c \vec{B} \cdot d\vec{l}}_{0 (\vec{B} \perp d\vec{l})} + \underbrace{\int_c^d \vec{B} \cdot d\vec{l}}_{0 (\vec{B} = \vec{0})} + \underbrace{\int_d^a \vec{B} \cdot d\vec{l}}_{0(\vec{B} \perp d\vec{l})} = Bl. 
+\end{equation*}
+
+Por la ley de Ampère.
+
+\begin{eqnarray*}
+\oint \vec{B} \cdot d\vec{l} &=& \mu_0 I_{enc} \\
+\Rightarrow \quad \quad Bl &=& \mu_0 nl I \\
+\Rightarrow \quad \quad ~ B &=& \mu_0 n I \\
+\Rightarrow \quad \quad ~ \vec{B} &=& \mu_0 n I \hat{\imath}.
+\end{eqnarray*}
+
+\textbf{Ejemplo 3:} Calcular el campo magnético de un solenoide toroidal de radio medio $r$ que tiene $N$ espiras de alambre que lleva una corriente $I$. Suponga que la magnitud del campo magnético es constante en toda la sección transversal.
+
+\begin{center}
+\includegraphics[scale=0.26]{Toroide.png}
+\end{center}
+
+\textbf{Solución:} 
+
+Usando los mismos argumentos que en el caso del solenoide anterior, $\vec{B}$ es constante a lo largo de la trayectoria circular de radio $r$ de la figura- Además suponemos que el campo magnético al exterior del toroide es nulo.
+
+Aplicamos la ley de Ampère al camino circular de radio $r$.
+
+\begin{eqnarray*}
+\oint \vec{B} \cdot d\vec{l} &=& \mu_0 I_{enc} \\
+\Rightarrow ~ \int_0^{2\pi} (-B \hat{\phi}) \cdot (-rd\phi \hat{\phi}) &=& \mu_0 N I \\ 
+\Rightarrow \quad \quad \quad \quad \quad ~  Br \int_0^{2\pi} d\phi &=& \mu_0 N I \\
+\Rightarrow \quad \quad \quad \quad \quad \quad \quad  ~\;  2\pi r B &=& \mu_0 N I \\
+\Rightarrow \quad \quad \quad \quad \quad \quad \quad \quad    \quad \; B &=& \frac{\mu_0 N I}{2\pi r} \\
+\Rightarrow \quad \quad \quad \quad \quad \quad  \quad  \quad  \quad ~ \vec{B} &=& - \frac{\mu_0 N I}{2\pi r}  \hat{\phi}.
+\end{eqnarray*}
+
+\section{Potencial vectorial*}
+
 \section{Campo magnético en la materia}
 
-
+\end{comment}
 

@@ -2,19 +2,17 @@
 
 \section{Campos escalares y vectoriales }
 
-Un \textbf{campo escalar} es una función que asigna a cada punto $(x,y)$ (o $(x,y,z)$) del espacio, un número real. Por ejemplo, en tres dimensiones $\phi = \phi(x,y,z)$. 
+Un \textbf{campo escalar} es una función que asigna a cada punto $(x,y)$ (ó $(x,y,z)$) del espacio, un número real. Por ejemplo, en tres dimensiones $\phi = \phi(x,y,z)$. 
 
-En Física, estas funciones son ocupadas, por ejemplo, para modelar la presión, $P(x,y,z)$, en cada punto de un fluido o la distribución de temperatura, $T(x,y,z)$, a través de un material. 
+En Física, estas funciones son usadas, por ejemplo, para modelar la presión, $P(x,y,z)$, en cada punto de un fluido, o la distribución de temperatura, $T(x,y,z)$, a través de un material. 
 
 La gráfica de un campo escalar $\phi(x,y)$ puede ser representada en un gráfico tridimensional, de tal forma que a cada punto del plano $xy$ se le asigna un valor en el eje $z$. Matemáticamente, son todas las ternas $(x,y,z)$ con $z = \phi(x,y)$. 
 
 \begin{ejemplo}
     Consideremos la función paraboloide hiperbólico
     $$z = \phi(x,y) = x^2+y^2,$$
-
     cuyas gráficas en 3-D y curvas de nivel, esto es, curvas
     $$\phi(x,y) = k,$$
-
     para una cierta constante $k \in \mathbb{R}$, se 
     detallan en la figura \ref{fig:CampoEscalar}.
 
@@ -30,17 +28,16 @@ La gráfica de un campo escalar $\phi(x,y)$ puede ser representada en un gráfic
 Por otro lado, para campos escalares $\phi(x,y,z)$, no es posible tener una representación gráfica debido a que la gráfica de la función vive en un espacio de  cuatro dimensiones, pues, bajo la misma lógica del campo $\phi(x,y)$, un punto de la gráfica sería la $4$-tupla $(x,y,z,w) \in \mathbb{R}^4$, con $w = \phi(x,y,z)$. 
 
  
-Un \textbf{campo vectorial} en el espacio de dos (o tres) dimensiones, es una función $\vec{V}$ que asigna a cada punto $(x,y)$ (o $(x,y,z)$) del espacio, un vector en dos (o tres) dimensiones dado por $\vec{V}(x,y)$ (o $\vec{V}(x,y,z)$).
+Un \textbf{campo vectorial} en el espacio de dos (o tres) dimensiones, es una función $\vec{V}$ que asigna a cada punto $(x,y)$ (ó $(x,y,z)$) del espacio, un vector en dos (o tres) dimensiones dado por $\vec{V}(x,y)$ (ó $\vec{V}(x,y,z)$).
 
-Usando la base canónica de $\mathbb{R}^2$ y $\mathbb{R}^3$: $\{\hat{x},\hat{y}\}$ y $\{\hat{x},\hat{y}, \hat{z}\}$,  respectivamente. La notación para el campo vectorial $\vec{V}$ está dada por:
-\begin{align*}
+Usando la base canónica de $\mathbb{R}^2$ y $\mathbb{R}^3$: $\{\hat{x},\hat{y}\}$ y $\{\hat{x},\hat{y}, \hat{z}\}$,  respectivamente, podemos expresar el campo vectorial $\vec{V}$ en términos de sus componentes:
+\begin{align}
     \vec{V} (x,y) &= V_x(x,y) \hat{x} + V_y(x,y) \hat{y}, \\
     \vec{V}(x,y,z) &= V_x(x,y,z) \hat{x} + V_y(x,y,z) \hat{y} + V_z(x,y,z) \hat{z},   
-\end{align*}
-
+\end{align}
 donde $V_x, V_y$ y $V_z$ son campos escalares.
 
-Es habitual graficar las campos vectoriales dibujando en cada punto $(x,y)$ (o $(x,y,z)$) del espacio el vector $\Vec{V}(x,y)$ (o $\Vec{V}(x,y,z)$).
+Es habitual graficar las campos vectoriales dibujando en cada punto $(x,y)$ (ó $(x,y,z)$) del espacio el vector $\Vec{V}(x,y)$ (ó $\Vec{V}(x,y,z)$).
 
 \begin{ejemplo}
 \ 
@@ -71,38 +68,46 @@ Es habitual graficar las campos vectoriales dibujando en cada punto $(x,y)$ (o $
 Sea la función de una variable real: $f(x)$. De los primeros cursos de Cálculo sabemos que si $f$ es derivable, la derivada $df/dx$ nos indica cómo cambia $f(x)$ con respecto $x$, geométricamente, corresponde a la pendiente de la gráfica $y = f(x)$. 
 
 Si consideramos cantidades infinitesimales,
-$$df = \left(\frac{df}{dx} \right) dx.$$
+\begin{equation}
+df = \left(\frac{df}{dx} \right) dx.
+\end{equation}
 
-En palabras: Si incrementamos $x$ por una cantidad infinitesimal $dx$, entonces $f$ cambia por una cantidad $df$; la derivada es el factor de proporcionalidad.
 
-\subsection*{Gradiente de un campo escalar}
+En palabras: Si incrementamos $x$ por una cantidad infinitesimal $dx$, entonces $f$ cambia por una cantidad $df$; la derivada (evaluada en el punto $x$) es el factor de proporcionalidad.
 
-Si consideramos ahora una función de tres variables: $f(x,y,z)$. Nos gustaría generalizar la noción de “derivada” de la función, que no depende de una sino de tres variables.
+\subsection{Gradiente de un campo escalar}
 
-Una derivada debería decirnos cuán rápido una función cambia, para el caso de tres variables la situación es más complicada porque ya no tenemos solo una dirección en un eje para evaluar el cambio, sino varias direcciones (representadas como vectores en $\mathbb{R}^3$). 
+Consideramos ahora una función de tres variables: $f(x,y,z)$. Nos gustaría generalizar la noción de “derivada” de la función, que no depende de una sino de tres variables.
 
-Definimos, artesanalmente, la derivada parcial de $f(x,y,z)$ con respecto al eje $x_i$,
-$$\frac{\partial f}{\partial x_i}, \quad \text{con} ~ x_i = x,y,z,$$
+Una derivada debería decirnos cuán rápido cambia una función, para el caso de tres variables la situación es más complicada porque ya no tenemos solo una dirección en un eje para evaluar el cambio, sino varias direcciones (representadas como vectores en $\mathbb{R}^3$). 
 
-como la “variación” de $f$ con respecto a la dirección dada por el eje $x_i$, manteniendo el resto de las variables constantes. Por ejemplo, 
-$$\frac{\partial}{\partial y}[2xy] = 2x,$$
+Definimos la derivada parcial de $f(x,y,z)$ con respecto al eje $x_i$,
+\begin{equation}
+\frac{\partial f}{\partial x_i}, \quad \text{con} ~ x_i = x,y,z,
+\end{equation}
+como la ``variación” de $f$ con respecto a la dirección dada por el eje $x_i$, manteniendo el resto de las variables constantes. Por ejemplo, 
+\begin{equation}
+\frac{\partial}{\partial y}[2xy] = 2x,
+\end{equation}
+donde hemos derivado suponiendo que $x$ es constante.
 
-donde hemos derivado suponiendo que $x$ es una constante.
+Para saber cuánto varía $f$ cuando nos trasladamos un desplazamiento infinitesimal $d\Vec{x} = dx \, \hat{x} + dy \,\hat{y} + dz \,\hat{z}$, el Cálculo en varias variables nos entrega el siguiente teorema:
+\begin{equation}\label{dfdxdydz}
+df = \left(\frac{\partial f}{\partial x}\right) dx + \left(\frac{\partial f}{\partial y}\right) dy +\left(\frac{\partial f}{\partial z}\right) dz.
+\end{equation}
 
-Para saber cuánto varía $f$ cuando nos trasladamos un diferencial de posición $d\Vec{x} = dx \, \hat{x} + dy \,\hat{y} + dz \,\hat{z}$, el Cálculo en varias variables nos entrega el siguiente teorema:
-$$df = \left(\frac{\partial f}{\partial x}\right) dx + \left(\frac{\partial f}{\partial y}\right) dy +\left(\frac{\partial f}{\partial z}\right) dz.$$
-
-Note que sólo nos bastó definir tres derivadas parciales para cuantificar el cambio infinitesimal de $f$, lo cual se justifica debido a que el espacio tridimensional $\mathbb{R}^3$ sólo tiene tres direcciones linealmente independientes.
+Note que sólo nos bastó definir tres derivadas parciales para cuantificar el cambio infinitesimal de $f$, lo cual se justifica debido a que el espacio tridimensional $\mathbb{R}^3$ sólo tiene tres direcciones linealmente independientes. Note además que cada una de las derivadas parciales en \eqref{dfdxdydz} está evaluada en el punto con coordenadas $(x,y,z)$.
 
 Notemos que 
-\begin{align*}
+\begin{align}
     df &= \left( \frac{\partial f}{\partial x} \hat{x} +  \frac{\partial f}{\partial y} \hat{y} +  \frac{\partial f}{\partial z} \hat{z}\right)  \cdot (dx \, \hat{x} + dy \, \hat{y} + dz \, \hat{z})\\
     &= (\Vec{\nabla} f) \cdot (d\Vec{x}),
-\end{align*}
-
+\end{align}
 donde 
 \begin{shaded}
-$$\vec{\nabla}f(x,y,z) := \frac{\partial f}{\partial x} \hat{x} + \frac{\partial f}{\partial y} \hat{y} +  \frac{\partial f}{\partial z} \hat{z}$$
+\begin{equation}
+\vec{\nabla}f(x,y,z) := \frac{\partial f}{\partial x} \hat{x} + \frac{\partial f}{\partial y} \hat{y} +  \frac{\partial f}{\partial z} \hat{z},
+\end{equation}
 \end{shaded}
 
 es el \textbf{gradiente de $f$} (en coordenadas cartesianas).
@@ -117,7 +122,7 @@ $$\vec{\nabla} :=  \hat{x} \frac{\partial}{\partial x} +  \hat{y} \frac{\partial
 El vector gradiente tiene dos \underline{interpretaciones geométricas} importantes:
 
 \begin{enumerate}
-\item En tres dimensiones, $\vec{\nabla}f(x,y,z)$ es un vector normal al plano tangente a la superficie $f ( x, y, z ) = C$ en cada punto. Para el caso de dos dimensiones, $\vec{\nabla}f(x,y)$ es un vector normal a la recta tangente a la curva $f(x,y) = C$.
+\item En tres dimensiones, $\vec{\nabla}f(x,y,z)$ es un \textit{vector normal al plano tangente a la superficie} $f(x,y,z)=C$ en cada punto. Para el caso de dos dimensiones, $\vec{\nabla}f(x,y)$ es un vector normal a la recta tangente a la curva $f(x,y) = C$.
 
 \begin{figure}[H]
     \centering
@@ -126,7 +131,7 @@ El vector gradiente tiene dos \underline{interpretaciones geométricas} importan
     \label{fig:Gradiente1}
 \end{figure}
 
-\item En dos dimensiones, $\vec{\nabla}f(x_0,y_0)$  indica la dirección del máximo incremento de $f(x,y)$ en el punto $(x_0,y_0)$. Para el caso de tres dimensiones, $\vec{\nabla}f(x_0,y_0,z_0)$  indica la dirección del máximo incremento de $f(x,y,z)$ en el punto $(x_0,y_0,z_0)$. 
+\item En dos dimensiones, $\vec{\nabla}f(x_0,y_0)$  indica la \textit{dirección del máximo incremento} de $f(x,y)$ a partir del punto $(x_0,y_0)$. Para el caso de tres dimensiones, $\vec{\nabla}f(x_0,y_0,z_0)$  indica la \textit{dirección del máximo incremento} de $f(x,y,z)$ a partir del punto $(x_0,y_0,z_0)$. 
 
 \begin{figure}[H]
     \centering
@@ -153,14 +158,13 @@ El vector gradiente tiene dos \underline{interpretaciones geométricas} importan
     Por lo tanto, el vector normal a la esfera en $(1,1,1)$ es $\Vec{\nabla} f(1,1,1) = 2 \hat{x} + 2 \hat{y} + 2 \hat{z}.$
 \end{ejemplo}
 
-\subsection*{Divergencia de un campo vectorial}
+\subsection{Divergencia de un campo vectorial}
 
 Para un campo vectorial
 $$\vec{V} (x,y,z) = V_x(x,y,z) \hat{x} + V_y(x,y,z) \hat{y} + V_z(x,y,z) \hat{z} ,$$
-
 la \textbf{divergencia} está definida por
 \begin{shaded}
-    $$\mbox{div} ~\vec{V} \equiv \vec{\nabla} \cdot \vec{V} := \frac{\partial V_x}{\partial x} + \frac{\partial V_y}{\partial y} + \frac{\partial V_z}{\partial z}.$$
+    $$\mbox{div}(\vec{V}) \equiv \vec{\nabla} \cdot \vec{V} := \frac{\partial V_x}{\partial x} + \frac{\partial V_y}{\partial y} + \frac{\partial V_z}{\partial z}.$$
 \end{shaded}
 
 \textbf{Nota:} Cualquier campo vectorial para el cual $\vec{\nabla} \cdot \vec{V} = 0$ se dice que es \textit{solenoidal}.
@@ -185,13 +189,13 @@ Analicemos los tres posibles casos:
 \end{enumerate}
 
 \begin{ejemplo}
-    En mecánica de fluidos, la distribución de las velocidades del fluido es descrita por un campo vectorial $v(x, y, z, t)$. Esto representa la velocidad del fluido en el punto $(x, y, z)$ en el instante $t$. En nuestro caso omitiremos la dependencia temporal. Suponga que el campo de velocidades de un fluido es
-    $$\Vec{v}(x,y) = (x^2-y^2) \hat{x} + 2xy \hat{j}$$
+    En mecánica de fluidos, la distribución de las velocidades del fluido es descrita por un campo vectorial $\vec{v}(x, y, z, t)$. Esto representa la velocidad del fluido en el punto de coordenadas $(x, y, z)$ en el instante $t$. En nuestro caso omitiremos la dependencia temporal. Suponga que el campo de velocidades de un fluido es, en dos dimensiones, dado por
+    $$\Vec{v}(x,y) = (x^2-y^2) \hat{x} + 2xy \hat{y}$$
 
     \begin{figure}[H]
     \centering
     \includegraphics[scale = 0.3]{Figuras/Ej-Divergencia}
-    \caption{Gráfica del campo de velocidades $\Vec{v}(x,y) = (x^2-y^2) \hat{x} + 2xy \hat{j}$ normalizado.}
+    \caption{Gráfica del campo de velocidades $\Vec{v}(x,y) = (x^2-y^2) \hat{x} + 2xy \hat{y}$ normalizado.}
     \label{fig:Ej_Divergencia}
     \end{figure}
 
@@ -200,30 +204,36 @@ Analicemos los tres posibles casos:
     \textbf{Solución:} La divergencia está dada por
     $$\vec{\nabla} \cdot \Vec{v} = \frac{\partial}{\partial x}[x^2-y^2] + \frac{\partial}{\partial y}[2xy] = 2x+2x = 4x. $$
 
-    En el punto $(1,2)$, $\vec{\nabla} \cdot \Vec{v}(1,2) = 4 > 0$. Por lo tanto, en este punto se tiene más una fuente que un sumidero. Físicamente, la densidad del fluido decrece en ese punto.
+    En el punto $(1,2)$, $(\vec{\nabla} \cdot \vec{v})(1,2) = 4 > 0$. Por lo tanto, en este punto se tiene más una fuente que un sumidero. Físicamente, la densidad del fluido decrece en ese punto.
 \end{ejemplo}
   
 
-\subsection*{Rotacional de un campo vectorial}
+\subsection{Rotacional de un campo vectorial}
 
 Sea el campo vectorial
-$$\vec{V} (x,y,z) = V_x(x,y,z) \hat{x} + V_y(x,y,z) \hat{y} + V_z(x,y,z) \hat{z}.$$
+\begin{equation}
+\vec{V} (x,y,z) = V_x(x,y,z) \hat{x} + V_y(x,y,z) \hat{y} + V_z(x,y,z) \hat{z}.
+\end{equation}
 
 El \textbf{rotor} (o \textbf{rotacional}) de $\vec{V}$ está definido por 
 \begin{shaded}
- $$\mbox{rot} ~ \vec{V} := \left( \frac{\partial V_z}{\partial y} - \frac{\partial V_y}{\partial z} \right) \hat{x} + \left( \frac{\partial V_x}{\partial z} - \frac{\partial V_z}{\partial x} \right) \hat{y} + \left( \frac{\partial V_y}{\partial x} - \frac{\partial V_x}{\partial y} \right) \hat{z}.$$   
+\begin{equation}
+\mbox{rot} ~ \vec{V} := \left( \frac{\partial V_z}{\partial y} - \frac{\partial V_y}{\partial z} \right) \hat{x} + \left( \frac{\partial V_x}{\partial z} - \frac{\partial V_z}{\partial x} \right) \hat{y} + \left( \frac{\partial V_y}{\partial x} - \frac{\partial V_x}{\partial y} \right) \hat{z}.
+\end{equation}
 \end{shaded}
 
 Otra forma de expresar el rotacional de un campo vectorial es
 \begin{shaded}
-$$\mbox{rot} ~ \vec{V} \equiv \vec{\nabla} \times \vec{V} = \left| \begin{array}{ccc}
+\begin{equation}
+\mbox{rot} ~ \vec{V} \equiv \vec{\nabla} \times \vec{V} = \left| \begin{array}{ccc}
 \hat{x} & \hat{y} & \hat{z}  \\
 \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}  \\
 V_x & V_y & V_z
-\end{array} \right|.$$  
+\end{array} \right|.
+\end{equation}
 \end{shaded}
 
-El rotor asociado a un campo vectorial $\vec{V}$ es otro campo vectorial, y por tanto el rotor calculado en un punto es un vector. El \textit{rotor} es un operador vectorial $(\vec{\nabla} \times)$ que muestra la tendencia de un campo vectorial a inducir una rotación alrededor de un punto.
+El rotor de un campo vectorial $\vec{V}$ es otro campo vectorial, y por tanto el rotor evaluado en un punto es un vector. El \textit{rotor} es un operador vectorial $(\vec{\nabla} \times)$ que muestra la tendencia de un campo vectorial a inducir una rotación alrededor de un punto.
 
 Si el rotor de un campo vectorial es cero en un punto significa que el campo vectorial no tiene rotaciones en ese punto (\textit{campo irrotacional}). En cambio si el rotor es distinto de cero significa que el campo tiene circulación o remolinos. En la siguiente figura se ilustra los dos casos para un campo vectorial $\Vec{V}$.
 
@@ -239,12 +249,7 @@ Si el rotor de un campo vectorial es cero en un punto significa que el campo vec
     $$\Vec{F}(x,y,z) = y \hat{x} - x\hat{y}.$$
     
     El rotor está dado por
-    
-    $$\vec{\nabla} \times \vec{F} = \left| \begin{array}{ccc}
-    \hat{x} & \hat{y} & \hat{z}  \\
-    \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}  \\
-    y & -x & 0
-    \end{array} \right| = 0 \hat{x} + 0 \hat{y} + \left( \frac{\partial}{\partial x}[-x] - \frac{\partial}{\partial y} [y]\right) \hat{z} = -2 \hat{z}.$$ 
+    $$\vec{\nabla} \times \vec{F} = 0 \hat{x} + 0 \hat{y} + \left( \frac{\partial}{\partial x}[-x] - \frac{\partial}{\partial y} [y]\right) \hat{z} = -2 \hat{z}.$$ 
 
     \begin{figure}[H]
         \centering
@@ -259,45 +264,47 @@ Si el rotor de un campo vectorial es cero en un punto significa que el campo vec
 
 \subsection*{Laplaciano}
 
-En muchas aplicaciones Físicas aparecen ciertas combinaciones del gradiente, la divergencia y el rotacional. Una de ellas es la divergencia de un gradiente.
+En muchas aplicaciones físicas aparecen ciertas combinaciones del gradiente, la divergencia y el rotacional. Una de ellas es la divergencia de un gradiente.
 
-Sea $f(x,y,z)$ un campo escalar diferenciable:
-\begin{align*}
+Sea $f(x,y,z)$ un campo escalar diferenciable, entonces
+\begin{align}
     \vec{\nabla} \cdot \vec{\nabla} f &=  \left( \hat{x} \frac{\partial}{\partial x}  + \hat{y} \frac{\partial}{\partial y}   + \hat{z}\frac{\partial}{\partial z}  \right) \cdot \left( \frac{\partial f}{\partial x} \hat{x} + \frac{\partial f}{\partial y} \hat{y} + \frac{\partial f}{\partial z} \hat{z} \right) \\
 &= \frac{\partial^2 f }{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z} .  
-\end{align*}
+\end{align}
 
 De aquí definimos el \textbf{Laplaciano} de $f$ como
 \begin{shaded}
-    $$\nabla^2 f := \frac{\partial^2 f }{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2}.$$
+\begin{equation}
+\nabla^2 f := \frac{\partial^2 f }{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2}.
+\end{equation}
 \end{shaded}
 
-\subsection*{Propiedades de los operadores vectoriales}
+\subsection{Propiedades de los operadores vectoriales}
 
 \begin{teorema} \label{Prop-Op-Vect}
 Sean $\Vec{A}$ y $\Vec{B}$ dos campos vectoriales diferenciables y, $\phi$ y $\psi$ dos campos escalares diferenciables de $(x,y,z)$. Entonces,
 \begin{enumerate}
-    \item $\Vec{\nabla}(\phi + \psi) = \Vec{\nabla} \phi + \Vec{\nabla} \psi$.
+    \item $\Vec{\nabla}(\phi + \psi) \equiv \Vec{\nabla} \phi + \Vec{\nabla} \psi$.
 
-    \item $\Vec{\nabla} \cdot (\vec{A} + \Vec{B}) = \Vec{\nabla} \cdot \Vec{A} + \Vec{\nabla} \cdot \Vec{B}$.
+    \item $\Vec{\nabla} \cdot (\vec{A} + \Vec{B}) \equiv \Vec{\nabla} \cdot \Vec{A} + \Vec{\nabla} \cdot \Vec{B}$.
 
-    \item $\Vec{\nabla} \times (\vec{A} + \Vec{B} ) = \Vec{\nabla} \times \Vec{A} + \Vec{\nabla} \times \Vec{B}$.
+    \item $\Vec{\nabla} \times (\vec{A} + \Vec{B} ) \equiv \Vec{\nabla} \times \Vec{A} + \Vec{\nabla} \times \Vec{B}$.
 
-    \item $\Vec{\nabla} \cdot (\phi \Vec{A}) = (\Vec{\nabla} \phi) \cdot \Vec{A} + \phi (\Vec{\nabla} \cdot \Vec{A})$.
+    \item $\Vec{\nabla} \cdot (\phi \Vec{A}) \equiv (\Vec{\nabla} \phi) \cdot \Vec{A} + \phi (\Vec{\nabla} \cdot \Vec{A})$.
 
-    \item $\Vec{\nabla} \times (\phi \Vec{A}) = (\Vec{\nabla} \phi) \times \Vec{A} + \phi(\Vec{\nabla} \times \Vec{A})$.
+    \item $\Vec{\nabla} \times (\phi \Vec{A}) \equiv (\Vec{\nabla} \phi) \times \Vec{A} + \phi(\Vec{\nabla} \times \Vec{A})$.
 
-    \item $\Vec{\nabla} \cdot (\Vec{A} \times \Vec{B}) = \Vec{B} \cdot (\Vec{\nabla} \times \Vec{A}) - \Vec{A} \cdot (\Vec{\nabla} \times \Vec{B})$.
+    \item $\Vec{\nabla} \cdot (\Vec{A} \times \Vec{B}) \equiv \Vec{B} \cdot (\Vec{\nabla} \times \Vec{A}) - \Vec{A} \cdot (\Vec{\nabla} \times \Vec{B})$.
 
-    \item $\Vec{\nabla} \times (\Vec{A} \times \Vec{B}) = (\Vec{B} \cdot \Vec{\nabla}) \Vec{A} - (\Vec{A} \cdot  \Vec{\nabla}) \Vec{B} + \Vec{A}( \Vec{\nabla} \cdot \Vec{B}) - \Vec{B}( \Vec{\nabla} \cdot \Vec{A})$.
+    \item $\Vec{\nabla} \times (\Vec{A} \times \Vec{B}) \equiv (\Vec{B} \cdot \Vec{\nabla}) \Vec{A} - (\Vec{A} \cdot  \Vec{\nabla}) \Vec{B} + \Vec{A}( \Vec{\nabla} \cdot \Vec{B}) - \Vec{B}( \Vec{\nabla} \cdot \Vec{A})$.
 
-    \item $ \Vec{\nabla}(\Vec{A} \cdot \Vec{B}) = (\Vec{B}  \cdot \Vec{\nabla}) \Vec{A} + (\Vec{A} \cdot  \Vec{\nabla}) \Vec{B} + \Vec{A} \times ( \Vec{\nabla} \times \Vec{B}) + \Vec{B} \times ( \Vec{\nabla} \times \Vec{A})$.
+    \item $ \Vec{\nabla}(\Vec{A} \cdot \Vec{B}) \equiv (\Vec{B}  \cdot \Vec{\nabla}) \Vec{A} + (\Vec{A} \cdot  \Vec{\nabla}) \Vec{B} + \Vec{A} \times ( \Vec{\nabla} \times \Vec{B}) + \Vec{B} \times ( \Vec{\nabla} \times \Vec{A})$.
 
-    \item Si $\phi$ es de clase $C^2$, $\vec{\nabla} \times  \Vec{\nabla} \phi = \Vec{0}$.
+    \item Si $\phi$ es de clase $C^2$, $\vec{\nabla} \times  \Vec{\nabla} \phi \equiv \Vec{0}$.
 
-    \item Si $\Vec{A}$ es de clase $C^2$, $\vec{\nabla} \cdot  (\Vec{\nabla} \times \Vec{A}) = 0$.
+    \item Si $\Vec{A}$ es de clase $C^2$, $\vec{\nabla} \cdot  (\Vec{\nabla} \times \Vec{A}) \equiv 0$.
 
-    \item $\Vec{\nabla} \times (\Vec{\nabla} \times \Vec{A}) = \Vec{\nabla} (\Vec{\nabla} \cdot \Vec{A}) - (\Vec{\nabla} \cdot \Vec{\nabla}) \Vec{A} = \Vec{\nabla}(\Vec{\nabla} \cdot \Vec{A}) - \Vec{\nabla}^2 \Vec{A}$.
+    \item $\Vec{\nabla} \times (\Vec{\nabla} \times \Vec{A}) \equiv \Vec{\nabla} (\Vec{\nabla} \cdot \Vec{A}) - (\Vec{\nabla} \cdot \Vec{\nabla}) \Vec{A} \equiv \Vec{\nabla}(\Vec{\nabla} \cdot \Vec{A}) - \Vec{\nabla}^2 \Vec{A}$.
 \end{enumerate}
 \end{teorema}
 
@@ -305,33 +312,34 @@ Sean $\Vec{A}$ y $\Vec{B}$ dos campos vectoriales diferenciables y, $\phi$ y $\p
 Ejercicio para el lector.
 \end{demo}
 
-\textbf{Observación:} El orden de como se aplica el operador es importante. Por ejemplo,
-\begin{align*}
+\textbf{Observación:} El orden en el que se aplican los operadores antes definidoses importante. Por ejemplo,
+\begin{align}
     (\Vec{B} \cdot \Vec{\nabla}) \Vec{A} &= \left( B_x \frac{\partial}{\partial x} + B_y \frac{\partial}{\partial y} + B_z \frac{\partial}{\partial z}\right) \left( A_x \hat{x} + A_y \hat{y} + A_z \hat{z}\right) \\
-    &= \left(B_x \frac{\partial A_x}{\partial x} + B_y \frac{\partial A_x}{\partial y}  + B_z\frac{\partial A_x}{\partial z} \right) \hat{x} + \left(B_x \frac{\partial A_y}{\partial x} + B_y \frac{\partial A_y}{\partial y}  + B_z\frac{\partial A_y}{\partial z} \right) \hat{y} \\
-    & + \left(B_x \frac{\partial A_z}{\partial x} + B_y \frac{\partial A_z}{\partial y}  + B_z\frac{\partial A_z}{\partial z} \right) \hat{z}
-\end{align*}
+    &= \left(B_x \frac{\partial A_x}{\partial x} + B_y \frac{\partial A_x}{\partial y}  + B_z\frac{\partial A_x}{\partial z} \right) \hat{x} + \left(B_x \frac{\partial A_y}{\partial x} + B_y \frac{\partial A_y}{\partial y}  + B_z\frac{\partial A_y}{\partial z} \right) \hat{y} \nonumber \\
+    &\ \quad + \left(B_x \frac{\partial A_z}{\partial x} + B_y \frac{\partial A_z}{\partial y}  + B_z\frac{\partial A_z}{\partial z} \right) \hat{z}
+\end{align}
 
 es distinto de
-\begin{align*}
+\begin{align}
     \Vec{B} ( \Vec{\nabla} \cdot \Vec{A}) &= \left( B_x \hat{x} + B_y \hat{y} + B_z \hat{z}\right) \left( \frac{\partial A_x}{\partial x} + \frac{\partial A_y}{\partial y} + \frac{\partial A_z}{\partial z}\right)  \\
-    &= \left(B_x \frac{\partial A_x}{\partial x} + B_x \frac{\partial A_y}{\partial y}  + B_x\frac{\partial A_z}{\partial z} \right) \hat{x} + \left(B_y \frac{\partial A_x}{\partial x} + B_y \frac{\partial A_y}{\partial y}  + B_y \frac{\partial A_z}{\partial z} \right) \hat{y} \\
-    & + \left(B_z \frac{\partial A_x}{\partial x} + B_z \frac{\partial A_y}{\partial y}  + B_z\frac{\partial A_z}{\partial z} \right) \hat{z}.
-\end{align*}
+    &= \left(B_x \frac{\partial A_x}{\partial x} + B_x \frac{\partial A_y}{\partial y}  + B_x\frac{\partial A_z}{\partial z} \right) \hat{x} + \left(B_y \frac{\partial A_x}{\partial x} + B_y \frac{\partial A_y}{\partial y}  + B_y \frac{\partial A_z}{\partial z} \right) \hat{y} \nonumber \\
+    &\ \quad + \left(B_z \frac{\partial A_x}{\partial x} + B_z \frac{\partial A_y}{\partial y}  + B_z\frac{\partial A_z}{\partial z} \right) \hat{z}.
+\end{align}
 
 \section{Integrales vectoriales}
 
-A lo largo del curso nos encontraremos con campos escalares y vectoriales que varían en el espacio, y necesitaremos con frecuencia integrar estos campos a lo largo de líneas, sobre superficies y a través de volúmenes.
+A lo largo del curso nos encontraremos con campos escalares y vectoriales que varían en el espacio, y necesitaremos con frecuencia integrar estos campos a lo largo de líneas, sobre superficies y también sobre volúmenes.
 
 \subsection{Integrales de línea}
 
 Las integrales de línea pueden tener las siguients formas:
-\begin{equation*}
+\begin{equation}
 \int_C \phi \, d\vec{x}, \quad \int_C \vec{F} \cdot d\vec{x}, \quad \int_C \vec{F} \times d\vec{x},
-\end{equation*}
-
+\end{equation}
 donde $\phi$ es un campo escalar, $\vec{F}$ un campo vectorial y $d\vec{x}$ un vector de desplazamiento infinitesimal. Si $C$ es una curva cerrada, se escribe: 
-$$\oint \vec{F} \cdot d\vec{x}.$$
+\begin{equation}
+\oint \vec{F} \cdot d\vec{x}.
+\end{equation}
 
 Las integrales $\int_C \vec{F} \cdot d\vec{x}$ son las más usuales en electromagnetismo y es común escribir
 $$\int_A^B \Vec{F} \cdot d\vec{x},$$
@@ -374,47 +382,45 @@ $$\int_A^B \Vec{F} \cdot d\Vec{x} = - \int_B^A \Vec{F} \cdot d\Vec{x}. $$
 \textbf{Observaciones:}
 
 \begin{enumerate}
-    \item Las curvas del ejemplo estaban constituidas de segmentos y el campo vectorial estaba escrito en coordenadas $(x,y,z)$, lo cual facilitó el cálculo usando coordenadas cartesianas. Sin embargo, si se hubiese integrado, por ejemplo, sobre un arco de circunferencia, las coordenadas cartesianas dejan de ser útiles. Entonces, dependiendo de la curva y la forma del campo vectorial, se elige el sistema de coordenadas apropiado para atacar la integral.
+    \item Las curvas del ejemplo estaban constituidas de segmentos y el campo vectorial estaba escrito en coordenadas $(x,y,z)$, lo cual facilitó el cálculo usando coordenadas cartesianas. Sin embargo, si se hubiese integrado, por ejemplo, sobre un arco de circunferencia, las coordenadas cartesianas dejan de ser las más útiles. Entonces, dependiendo de la curva y la forma del campo vectorial, se elige el sistema de coordenadas apropiado para atacar la integral.
 
     \item En general, las integrales de línea dependen de la trayectoria que unen los puntos.
 \end{enumerate}
 
 
-Un tipo de campo vectorial muy importante al momento de calcular integrales de línea son los campo \textbf{conservativos}. 
+Un tipo de campo vectorial muy importante al momento de calcular integrales de línea son los campos \textbf{conservativos}. 
 
 Un campo vectorial $\vec{F}$ se dice \textbf{conservativo} si existe un campo escalar $\phi$ tal que
-\begin{equation*}
+\begin{equation}
 \vec{F} = \vec{\nabla} \phi.
-\end{equation*}
+\end{equation}
 
 De aquí se deriva el \textbf{teorema fundamental para gradientes}, el cual expresa que
 \begin{shaded}
-   \begin{equation*}
-\int_A^B \vec{F} \cdot d\vec{r} = \int_A^B \Vec{\nabla} \phi \cdot d\Vec{x} = \phi(B) - \phi(A),
-\end{equation*} 
+ \begin{equation}
+\int_A^B \vec{F} \cdot d\vec{x} = \int_A^B \Vec{\nabla} \phi \cdot d\Vec{x} = \phi(B) - \phi(A),
+ \end{equation} 
 \end{shaded}
-
 para cualquier curva que una $A$ y $B$.
 
 Si $\Vec{F}$ es un campo conservativo, se verifica:
 \begin{enumerate}
-\item $\int \vec{F} \cdot d\vec{r}$ es independiente de la trayectoria tomada.
+\item $\int \vec{F} \cdot d\vec{x}$ es independiente de la trayectoria tomada.
 
-\item $\oint\vec{F} \cdot d\vec{r} = 0$ para toda trayectoria cerrada.
+\item $\oint\vec{F} \cdot d\vec{x} = 0$ para toda trayectoria cerrada.
 
 \item $\vec{\nabla} \times \vec{F} = \vec{0}$, es decir, un campo conservativo es irrotacional.
 \end{enumerate}
 
 \subsection{Integrales de superficie}
 
-Las integrales de superficie pueden tener las siguientes formas>
-\begin{equation*}
-\iint_S \phi d\vec{S}, \quad \iint_S \vec{F} \cdot d\vec{S}, \quad \iint_S \vec{F} \times d\vec{S},
-\end{equation*}
-
+Las integrales de superficie pueden tener las siguientes formas
+\begin{equation}
+\iint_S \phi\, d\vec{S}, \quad \iint_S \vec{F} \cdot d\vec{S}, \quad \iint_S \vec{F} \times d\vec{S},
+\end{equation}
 donde $\phi$ es un campo escalar, $\vec{F}$ un campo vectorial y $d\vec{S}$ un vector de superficie infinitesimal de la superficie $S$ la cual puede ser abierta o cerrada. De nuevo, para superficies cerradas se usa el símbolo $\oiint$.
 
-El elemento $d\vec{S}$ se define perpendicular a la superficie y a veces se escribe como $d\vec{S} = \hat{n} dS$, donde $\hat{n}$ es un vector unitario perpendicular a la superficie en la posición del elemento y $dS$ es la magnitud (escalar) de $d\vec{S}$. Si la superficie encierra un volumen, $\hat{n}$ apunta fuera del volumen (a menos que se indique lo contrario), ver figura \ref{fig:Superficies}-(a).
+El elemento $d\vec{S}$ se define perpendicular a la superficie y a veces se escribe como $d\vec{S} = \hat{n} dS$, donde $\hat{n}$ es un vector unitario perpendicular a la superficie en la posición del elemento y $dS$ es la magnitud (escalar) de $d\vec{S}$ (es decir, el elemento de área). Si la superficie encierra un volumen, $\hat{n}$ apunta fuera del volumen (a menos que se indique lo contrario), ver figura \ref{fig:Superficies}-(a).
 
 Para el caso de una superficie $S$ que no está en un volumen cerrado, diremos que la orientación de la curva cerrada $C$, trazada sobre el contorno de $S$, es compatible con la orientación de $S$ si la orientación de $C$ y $S$ cumplen con la regla de la mano derecha, ver figura \ref{fig:Superficies}-(b).
 
@@ -427,16 +433,14 @@ Para el caso de una superficie $S$ que no está en un volumen cerrado, diremos q
 
 
 Las integrales de superficie más comunes son las de tipo 
-\begin{equation*}
+\begin{equation}
 \Phi_F = \iint_S \vec{F} \cdot d\vec{S},
-\end{equation*}
-
+\end{equation}
 llamadas integrales de \textbf{flujo}.
 
 \begin{ejemplo}
-    Calcule la integral de superficie de 
+    Calcule la integral de flujo de 
     $$\Vec{F}(x,y,z) = 2xz \hat{x} + (x+2) \hat{y} + y(z^2-3) \hat{z}$$
-
     sobre las cinco caras (no incluyendo la basal) de la caja cúbica en la figura \ref{fig:Ej_Int_Superficie}.
 
     \begin{figure}[H]
@@ -498,17 +502,19 @@ llamadas integrales de \textbf{flujo}.
 \subsection{Integral de volumen}
 
 Una integral de volumen es una expresión de la forma
-$$\iiint_V f(x,y,z) \,dV,$$
-
+\begin{equation}
+\iiint_V f(x,y,z) \,dV,
+\end{equation}
 donde $f(x,y,z)$ es un campo escalar y $dV$ un elemento infinitesimal de volumen. En coordenadas cartesianas,
-$$dV = dx dy dz.$$
+\begin{equation}
+dV = dx dy dz.
+\end{equation}
 
-Ocasionalmente nos encontraremos con integrales de volumen de campos vectoriales:
-\begin{align*}
-  \iiint_V \vec{F} dV &= \iiint_V (F_x \hat{x} + F_y \hat{y} + F_z \hat{z}) \,dV\\
-  &=\hat{x} \iiint_V F_x dV +  \hat{y} \iiint_V F_y dV  + \hat{z} \iiint_V F_z dV, 
-\end{align*}
-
+Ocasionalmente nos encontraremos con integrales de volumen de campos vectoriales, de la forma:
+\begin{align}
+  \iiint_V \vec{F}\, dV &= \iiint_V (F_x \hat{x} + F_y \hat{y} + F_z \hat{z}) \,dV\\
+  &=\hat{x} \iiint_V F_x\, dV +  \hat{y} \iiint_V F_y\, dV  + \hat{z} \iiint_V\, F_z dV, 
+\end{align}
 porque los vectores unitarios ($\hat{x}$, $\hat{y}$ y $\hat{z}$) son constantes, salen de la integral.
 
 \begin{ejemplo}
@@ -586,18 +592,18 @@ porque los vectores unitarios ($\hat{x}$, $\hat{y}$ y $\hat{z}$) son constantes,
 
 \begin{teorema}[de Gauss] \label{Gauss}
     Sea $V$ una región limitada por una superficie $S$ suave y cerrada, tal que se le pueda atribuir una orientación en cada punto. Si $\vec{F}$ es un campo vectorial de clase $C^1$ sobre un abierto que contiene a $V$ y $\hat{n}$ la orientación dada por la normal exterior a $S$. Entonces,
-    \begin{equation*}
-    \boxed{\iint_S \vec{F} \cdot \hat{n}dS = \iiint_V \vec{\nabla} \cdot \vec{F} dV} 
-    \end{equation*}
+    \begin{equation}
+    \boxed{\iint_S \vec{F} \cdot \hat{n}\,dS = \iiint_V \vec{\nabla} \cdot \vec{F}\, dV.} 
+    \end{equation}
 \end{teorema}
 
 \begin{teorema}[de Stokes] \label{Stokes}
     Sea $S$ una superficie suave orientada con un vector unitario $\hat{n}$ y supongamos que $S$ tiene un borde $C$, que es una curva cerrada, lisa a trozos (seccionalmente suave), cuya orientación es compatible con la de $S$.
 
     Si $\vec{F}$ es un campo vectorial de clase $C^1$ en un abierto que contiene a $S$ y su frontera $C$, se verifica:
-    \begin{equation*}
-    \boxed{\int_C \vec{F} \cdot d\vec{r} = \iint_S (\vec{\nabla} \times \vec{F}) \cdot \hat{n}dS}
-    \end{equation*}
+    \begin{equation}
+    \boxed{\int_C \vec{F} \cdot d\vec{x} = \iint_S (\vec{\nabla} \times \vec{F}) \cdot \hat{n}\,dS.}
+    \end{equation}
 \end{teorema}
 
 \section{Coordenadas curvilíneas}
@@ -688,7 +694,7 @@ dV = r^2 \sin \theta \,dr\,d\theta\,d\varphi,
 \end{shaded}
 lo cual corresponde al volumen del paralelepípedo formado por los vectores: $dr \,\hat{r}$, $r \,d\theta \, \hat{\theta}$ y $r \sin \theta \,d\varphi \, \hat{\varphi}$.
 
-No existe una expresión general para los elementos de superficie $d\Vec{S}$, ya que estos dependen de la orientación de la superficie. Para obtenerlos uno tiene que analizar la geometría para cada caso. En la figura \ref{fig:Vol-Esfericas}, se encuentran representados los diferentes elementos infinitesimales que se pueden obtener. Para el caso de los elementos infinitesimales  de superficie, se tienen tres casos:
+No existe una expresión general para los elementos de superficie $d\Vec{S}$, ya que estos dependen de la orientación de la superficie. Para obtenerlos uno tiene que analizar la geometría para cada caso. En la figura \ref{fig:Vol-Esfericas}, se encuentran representados los diferentes elementos infinitesimales que se pueden obtener. Para el caso de los elementos infinitesimales  de superficie, correspondientes a las distintas caras del elemento de volumen en la figura \ref{fig:Vol-Esfericas}, se tiene:
 \begin{shaded}
   \begin{equation*}
 d\vec{S}_r = r^2 \sin \theta\, d\theta\, d\varphi \,\hat{r} ,\quad d\vec{S}_{\theta} = r \sin\theta \,dr \,d \varphi \,\hat{\theta}, \quad  d\vec{S}_{\varphi} = r \,dr\, d\theta \,\hat{\varphi}.
@@ -870,7 +876,7 @@ y en coordenadas esféricas
 y en coordenadas esféricas
 \begin{shaded}
 \begin{equation}
-\nabla^2 f(r,\theta,\varphi) = \frac{1}{r^2} \frac{\partial}{\partial r^2} \left( r^2 \frac{\partial f}{\partial r} \right) + \frac{1}{r^2 \sin\theta} \frac{\partial}{\partial \theta} \left( \sin \theta \frac{\partial f}{\partial \theta}\right) + \frac{1}{r^2 \sin^2\theta} \frac{\partial^2 f}{\partial \varphi^2}.
+\nabla^2 f(r,\theta,\varphi) = \frac{1}{r^2} \frac{\partial}{\partial r} \left( r^2 \frac{\partial f}{\partial r} \right) + \frac{1}{r^2 \sin\theta} \frac{\partial}{\partial \theta} \left( \sin \theta \frac{\partial f}{\partial \theta}\right) + \frac{1}{r^2 \sin^2\theta} \frac{\partial^2 f}{\partial \varphi^2}.
 \end{equation}
 \end{shaded}
 \end{itemize}
